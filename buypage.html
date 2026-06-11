@@ -1,0 +1,77 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <button id="back-btn" class="back-btn" style="position:fixed;top:12px;left:12px;z-index:1000;padding:8px 10px;">Back</button>
+    <div class="checkout-body">
+
+        <h3>Checkout Details</h3>
+        <p>Item: <strong id="item-name">None selected</strong></p>
+        <p>Base Price: $<strong id="base-price">0.00</strong></p>
+        <p>Total: $<strong id="total-price">0.00</strong></p>
+
+        <div class="quantity">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+
+        <div>
+            <label for="username">Growtopia Username (IGN):</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div style="margin-top:0.5em;">
+            <button class="confirm-btn">Confirm Purchase</button>
+        </div>
+
+        <!-- Product is selected from the index page link; no fallback selector here -->
+
+    </div>
+
+    <script>
+        function updateDisplay(name, price) {
+            document.getElementById('item-name').textContent = name || 'None selected';
+            document.getElementById('base-price').textContent = Number(price || 0).toFixed(2);
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const qty = Number(document.getElementById('quantity').value) || 1;
+            const base = Number(document.getElementById('base-price').textContent) || 0;
+            document.getElementById('total-price').textContent = (qty * base).toFixed(2);
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const qItem = params.get('item');
+        const qPrice = params.get('price');
+
+        // accept either `item` or `name` query param from index links
+        const selectedName = qItem || params.get('name');
+        if (selectedName) {
+            updateDisplay(selectedName, qPrice || 0);
+        } else {
+            updateDisplay('', 0);
+        }
+
+        document.getElementById('quantity').addEventListener('input', updateTotal);
+
+        document.getElementById('back-btn').addEventListener('click', () => {
+            history.back();
+        });
+
+        document.querySelector('.confirm-btn').addEventListener('click', () => {
+            const name = document.getElementById('item-name').textContent;
+            const total = document.getElementById('total-price').textContent;
+            const user = document.getElementById('username').value.trim();
+            if (name === 'None selected') return alert('Select a product first.');
+            if (!user) return alert('Enter your Growtopia username.');
+            alert(`Purchasing ${name}\nUser: ${user}\nTotal: $${total}`);
+        });
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,138 @@
+head {
+    background-color: #f2f2f2;
+    font-family: century gothic, sans-serif;
+    margin: 0;
+    padding: 0;}
+img.logo {
+    background-color: none;
+    color: black;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+nav {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+nav a, nav a:visited {
+    background-color: #a9e8f9;
+    text-decoration: none;
+    color: white;
+    margin: -10px auto;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+nav a:hover, nav a:focus {
+    background: rgba(43, 108, 176, 0.06);
+    outline: none;
+}
+
+body {
+    background-image: url('pics/bgpic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #111;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.MainContent {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.shop-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: -60px;
+    font-size: 100px;
+    justify-content: center;
+}
+
+.ShopContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    
+}
+.item {
+    
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+    text-align: center;
+    align-items: center;
+    max-width: 250px;
+    justify-content: center;
+}
+.item img {
+    max-width: 100%;
+    height: 12rem;
+    border-radius: 6px;
+    object-fit: contain;
+    padding: 5px;
+    
+}
+.item img .lpic {
+    height: 80%;
+}
+
+.buy {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #10b981;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+
+.checkout-body {
+    max-width: 480px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    font-size: 150%;
+}
+
+.checkout-body h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  
+}
+
+.checkout-body p {
+    margin: 0 0 5px;
+}
+
+.checkout-body .confirm-btn {
+    width: 100%;
+    background-color: #10b981; /* Your solid green brand color */
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
